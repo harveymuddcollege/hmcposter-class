@@ -24,6 +24,8 @@
 %          Harvey Mudd College
 %          1250 N. Dartmouth Ave.
 %          Claremont, CA 91711
+%
+% $Id $
 % 
 % \fi
 %%
@@ -57,6 +59,11 @@
 
 
 \RequirePackage{palatino}
+\RequirePackage{graphics}
+\RequirePackage{color}
+\definecolor{hmcgold}{rgb}{0.545,0.404,0.188}
+\definecolor{dkblue}{rgb}{0,0,0.47}
+\definecolor{green}{rgb}{0,1,0}
 \RequirePackage{multicol}
 \setlength{\columnsep}{1in}
 \setlength{\columnseprule}{2pt}
@@ -70,11 +77,18 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{2pt}
 
+
+%%% Redefine the named font sizes so we can keep most of the code
+%%% intact whist still having larger type.
+
 \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
-\renewcommand\normalsize{\fontsize{24pt}{36pt}\selectfont}
 \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
 \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
+\renewcommand\normalsize{\fontsize{24pt}{36pt}\selectfont}
 
+
+
+%%% Define some new fields for use in the header/title.
 
 \def\sponsor#1{\gdef\@sponsor{#1}}
 \def\@sponsor{\@latex@warning@no@line{No \noexpand\sponsor given}}
@@ -83,26 +97,68 @@
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
 
 
+%%% Redefine \@maketitle.
+
 \renewcommand{\@maketitle}{%
   \newpage
   \null
   \vskip 2em%
   \begin{center}%
-    {\LARGE \@date\ \@sponsor\ \@department\ Clinic \par}%
-    {\fontsize{100pt}{120pt}\selectfont \@title \par}%
+    {\color{hmcgold}\LARGE \textsf{\@date\ \@sponsor\ \@department\ Clinic} \par}%
+    {\color{hmcgold}\fontsize{100pt}{120pt}\selectfont \textsf{\textbf{\@title}} \par}%
     \vskip 1.5em%
   \end{center}%
   \par
   \vskip 1.5em}
 
 
+%%% Make footer rule hmcgold.
+%%%
+%%% This code taken from fancyhdr.sty; written by Piet van Oostrum.
+\renewcommand{\footrule}{{\color{hmcgold}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+    \vskip-\footruleskip\vskip-\footrulewidth
+    \hrule\@width\headwidth\@height\footrulewidth\vskip\footruleskip}}
+%%% End code from fancyhdr.sty.
+
+
+%%% Make vertical rules hmcgold.
+%%%
+%%% This code is modified from the code in multicol.sty; written by
+%%% Frank Mittelbach and part of standard LaTeX.
+%%%
+%%% It will probably break if the original routine is modified in
+%%% future versions of multicol.sty, so be sure to check there.
+
+\renewcommand{\page@sofar}{%
+   \process@cols\mult@rightbox
+       {\ifvoid\count@
+          \setbox\count@\hbox to\hsize{}%
+        \else
+          \wd\count@\hsize
+        \fi}%
+   \mult@info\z@
+    {Column spec:\MessageBreak
+       (\the\multicol@leftmargin\space -->
+        \the\full@width\space = \the\hsize
+        \space x \the\col@number)%
+     }%
+\ifvmode\else\errmessage{Multicol Error}\fi
+   \moveright\multicol@leftmargin
+    \hbox to\full@width{%
+     \process@cols\mult@gfirstbox{\box\count@
+       \hss{\color{hmcgold}\vrule\@width\columnseprule}\hss}%
+     \box\mult@rightbox
+      \rlap{\phantom p}%
+    }%
+}
+%%% End code from multicol.sty.
+
 \newenvironment{poster}{%
 \thispagestyle{fancy}
-\rule{\textwidth}{2pt}
+{\color{hmcgold}\rule{\textwidth}{2pt}}
 \begin{multicols*}{4}
 }%
 {\end{multicols*}
-%\rule{\textwidth}{2pt}%
 }
 
 
