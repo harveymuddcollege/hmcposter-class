@@ -45,7 +45,7 @@
 
 \setlength{\paperwidth}{48in}
 \setlength{\paperheight}{36in}
-\setlength{\textwidth}{46in}
+\setlength{\textwidth}{45in}
 \setlength{\textheight}{32in}
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\evensidemargin}{\oddsidemargin}
@@ -64,7 +64,7 @@
   \end{minipage}
 }
 
-
+\RequirePackage{ifthen}
 \RequirePackage{palatino}
 \RequirePackage{graphics}
 \RequirePackage{color}
@@ -75,17 +75,7 @@
 \setlength{\columnsep}{1in}
 \setlength{\columnseprule}{2pt}
 
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}                      % Clear all fields.
-\fancyhead[LO,LE]{\@hmclogo}
-\fancyfoot[RO,RE]{\small Copyright \copyright{} 2005, Harvey Mudd College
-  Department of Mathematics.}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{2pt}
-
-
-%%% Redefine the named font sizes so we can keep most of the code
+%% Redefine the named font sizes so we can keep most of the code
 %%% intact whist still having larger type.
 
 \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
@@ -103,8 +93,25 @@
 \def\department#1{\gdef\@department{#1}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
 
+\def\sponsorlogo#1{\gdef\@sponsorlogo{#1}}
+\def\@sponsorlogo{\@latex@warning@no@line{No \noexpand\sponsorlogo given}}
 
-%%% Redefine \@maketitle.
+
+%%% Set up the header.
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}                      % Clear all fields.
+\fancyhead[LO,LE]{\raisebox{1in}{\@hmclogo}}
+\ifthenelse{\isundefined\@sponsorlogo}{}{%
+  \fancyhead[RO,RE]{\resizebox{9.25in}{!}{\includegraphics{\@sponsorlogo}}}}
+\fancyfoot[RO,RE]{\small Copyright \copyright{} 2005, Harvey Mudd College
+  Department of Mathematics.}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{2pt}
+
+
+%%%% Redefine \@maketitle.
 
 \renewcommand{\@maketitle}{%
   \newpage
