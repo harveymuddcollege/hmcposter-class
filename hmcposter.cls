@@ -57,6 +57,13 @@
 \setlength{\hoffset}{0pt}
 
 
+%%% Define a command to include the HMC Logo.
+\DeclareRobustCommand{\@hmclogo}{%
+  \begin{minipage}{9.5in}
+    \resizebox{9.25in}{!}{\includegraphics{hmclogo}}
+  \end{minipage}
+}
+
 
 \RequirePackage{palatino}
 \RequirePackage{graphics}
@@ -71,7 +78,7 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
-\fancyhead{}
+\fancyhead[LO,LE]{\@hmclogo}
 \fancyfoot[RO,RE]{\small Copyright \copyright{} 2005, Harvey Mudd College
   Department of Mathematics.}
 \renewcommand{\headrulewidth}{0pt}
@@ -195,87 +202,6 @@
                {\def\@captype {table}}
                {}
 
-% \renewcommand{\caption}{%
-%   \ifx\@captype\@undefined
-%     \@latex@error{\noexpand\caption outside float}\@ehd
-%     \expandafter\@gobble
-%   \else
-%      \refstepcounter\@captype
-%      \expandafter\@firstofone
-%   \fi
-%    {\@dblarg{\@caption\@captype}}%
-% }
 
-
-% \def\@float#1{%
-%   \@ifnextchar[%
-%     {\@xfloat{#1}}%
-%     {\edef\reserved@a{\noexpand\@xfloat{#1}[\csname fps@#1\endcsname]}%
-%      \reserved@a}}
-% \def\@xfloat #1[#2]{%
-%   \@nodocument
-%   \def \@captype {#1}%
-%    \def \@fps {#2}%
-%    \@onelevel@sanitize \@fps
-%    \def \reserved@b {!}%
-%    \ifx \reserved@b \@fps
-%      \@fpsadddefault
-%    \else
-%      \ifx \@fps \@empty
-%        \@fpsadddefault
-%      \fi
-%    \fi
-%    \ifhmode
-%      \@bsphack
-%      \@floatpenalty -\@Mii
-%    \else
-%      \@floatpenalty-\@Miii
-%    \fi
-%   \ifinner
-%      \@parmoderr\@floatpenalty\z@
-%   \else
-%     \@next\@currbox\@freelist
-%       {%
-%        \@tempcnta \sixt@@n
-%        \expandafter \@tfor \expandafter \reserved@a
-%          \expandafter :\expandafter =\@fps
-%          \do
-%           {%
-%            \if \reserved@a h%
-%              \ifodd \@tempcnta
-%              \else
-%                \advance \@tempcnta \@ne
-%              \fi
-%            \fi
-%            \if \reserved@a t%
-%              \@setfpsbit \tw@
-%            \fi
-%            \if \reserved@a b%
-%              \@setfpsbit 4%
-%            \fi
-%            \if \reserved@a p%
-%              \@setfpsbit 8%
-%            \fi
-%            \if \reserved@a !%
-%              \ifnum \@tempcnta>15
-%                \advance\@tempcnta -\sixt@@n\relax
-%              \fi
-%            \fi
-%            }%
-%        \@tempcntb \csname ftype@\@captype \endcsname
-%        \multiply \@tempcntb \@xxxii
-%        \advance \@tempcnta \@tempcntb
-%        \global \count\@currbox \@tempcnta
-%        }%
-%     \@fltovf
-%   \fi
-%   \global \setbox\@currbox
-%     \color@vbox
-%       \normalcolor
-%       \vbox \bgroup
-%         \hsize\columnwidth
-%         \@parboxrestore
-%         \@floatboxreset
-% }
 
 \endinput
