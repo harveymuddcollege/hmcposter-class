@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{amsmath}
+\usepackage{alltt}
 
 \sponsor{Sandia National Laboratories}
 \sponsorlogo{sandia-logo}
@@ -169,18 +170,27 @@ in Figure~\ref{fig:big-matrix}.
 
 \begin{figure}
 \begin{center}
-\includegraphics{big-matrix}
+\resizebox*{9in}{!}{\includegraphics{big-matrix}}
 \caption{The matrix $B$.}%
 \label{fig:big-matrix}
 \end{center}
 \end{figure}
 
-The matrix $B$ is 35 $\times$ 35 (down from $M$Õs original 50 $\times$ 35), and now we can finally solve for $E$ and $v$:
-\begin{verbatim}
-F = [poly2mat( [ 1 1 1 -1 ], [ 2 0 0; 0 1 0; 0 0 1; 0 0 0 ], 4, 2 );
-     poly2mat( [ 1 1 1 -1 ], [ 1 0 0; 0 2 0; 0 0 1; 0 0 0 ], 4, 2 );
-     poly2mat( [ 1 1 1 -1 ], [ 1 0 0; 0 1 0; 0 0 2; 0 0 0 ], 4, 2 ) ];
-\end{verbatim}
+The matrix $B$ is 35 $\times$ 35 (down from $M$Õs original 50 $\times$ 35), and now we can finally solve for $E$ and $v$:\\
+\begin{center}
+  \begin{alltt}
+    \fontsize{18pt}{22pt}\selectfont
+    F = [poly2mat( [ 1 1 1 -1 ], [ 2 0 0; 0 1 0; 0 0 1; 0 0 0 ], 4, 2 );
+    poly2mat( [ 1 1 1 -1 ], [ 1 0 0; 0 2 0; 0 0 1; 0 0 0 ], 4, 2 );
+    poly2mat( [ 1 1 1 -1 ], [ 1 0 0; 0 1 0; 0 0 2; 0 0 0 ], 4, 2 ) ];
+  \end{alltt}
+\end{center}
+
+Our program takes in the coefficients and degree sequences for the
+three original polynomials, calculates $M$, $N$, $A$, and $B$ ($B$ is
+shown in Figure~\ref{fig:big-matrix}), and returns the solution matrix
+shown in Table~\ref{tab:solution-matrix}, corresponding to the
+complete solution set shown in Table~\ref{tab:solution-set}.
 
 \begin{table}
 \begin{center}
@@ -214,45 +224,6 @@ F = [poly2mat( [ 1 1 1 -1 ], [ 2 0 0; 0 1 0; 0 0 1; 0 0 0 ], 4, 2 );
 \end{center}
 \end{table}
 
-% \begin{table}
-% \begin{center}
-% \begin{tabular}{lll}
-% -2.4142  &  -2.4142  & -2.4142\\
-% -0.0000  &  -0.0000  &  1.0000\\
-%  0.0000  &   0.0000  &  1.0000\\
-%  0.4142  &   0.4142  &  0.4142\\
-%  1.0000  &  -0.0000  & -0.0000\\
-%  1.0000  &   0.0000  &  0.0000\\
-%  0.0000  &   1.0000  &  0.0000\\
-% -0.0000  &   1.0000  & -0.0000
-% \end{tabular}
-% \caption{Solution matrix.}%
-% \label{tab:solution-matrix}
-% \end{center}
-% \end{table}
-
-% \begin{table}
-% \begin{center}
-% \begin{tabular}{@{(}l@{.}r@{, }l@{.}r@{, }l@{.}r@{)}}
-% -2 & 4142  &  -2 & 4142  & -2 & 4142\\
-% -0 & 0000  &  -0 & 0000  &  1 & 0000\\
-%  0 & 0000  &   0 & 0000  &  1 & 0000\\
-%  0 & 4142  &   0 & 4142  &  0 & 4142\\
-%  1 & 0000  &  -0 & 0000  & -0 & 0000\\
-%  1 & 0000  &   0 & 0000  &  0 & 0000\\
-%  0 & 0000  &   1 & 0000  &  0 & 0000\\
-% -0 & 0000  &   1 & 0000  & -0 & 0000
-% \end{tabular}
-% \caption{Solution set.}%
-% \label{tab:solution-set}
-% \end{center}
-% \end{table}
-
-Our program takes in the coefficients and degree sequences for the
-three original polynomials, calculates $M$, $N$, $A$, and $B$ ($B$ is
-shown in Figure~\ref{fig:big-matrix}), and returns the solution matrix
-shown in Table~\ref{tab:solution-matrix}, corresponding to the
-complete solution set shown in Table~\ref{tab:solution-set}.
 
 \section{Acknowledgments}%
 \label{sec:acknowledgments}
