@@ -25,7 +25,7 @@
 %          1250 N. Dartmouth Ave.
 %          Claremont, CA 91711
 %
-% $Id $
+% $Id$
 % 
 % \fi
 %%
@@ -78,10 +78,22 @@
 %% Redefine the named font sizes so we can keep most of the code
 %%% intact whist still having larger type.
 
-\renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
-\renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
-\renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
-\renewcommand\normalsize{\fontsize{24pt}{36pt}\selectfont}
+% \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
+% \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
+% \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
+% \renewcommand\normalsize{\fontsize{24pt}{36pt}\selectfont}
+
+
+\renewcommand\tiny{\fontsize{12}{14.4}\selectfont}
+\renewcommand\scriptsize{\fontsize{16.8}{19.2}\selectfont}
+\renewcommand\footnotesize{\fontsize{19.2}{22.8}\selectfont}
+\renewcommand\small{\fontsize{21.6}{26.4}\selectfont}
+\renewcommand\normalsize{\fontsize{24}{28.8}\selectfont}
+\renewcommand\large{\fontsize{28.8}{33.6}\selectfont}
+\renewcommand\Large{\fontsize{33.6}{43.2}\selectfont}
+\renewcommand\LARGE{\fontsize{40.8}{52.8}\selectfont}
+\renewcommand\huge{\fontsize{48}{60}\selectfont}
+\renewcommand\Huge{\fontsize{60}{72}\selectfont}
 
 
 
