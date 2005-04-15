@@ -41,7 +41,7 @@
 %\ExecuteOptions{}
 \ProcessOptions\relax %% <-- Change this if we decide to declare some
                       %%     options for this class!
-\LoadClass[24pt]{article}
+\LoadClass{article}
 
 \setlength{\paperwidth}{48in}
 \setlength{\paperheight}{36in}
@@ -70,6 +70,7 @@
 \RequirePackage{graphics}
 \RequirePackage{color}
 \definecolor{hmcgold}{rgb}{0.545,0.404,0.188}
+\definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
 \definecolor{green}{rgb}{0,1,0}
 \RequirePackage{multicol}
@@ -127,13 +128,13 @@
 %%%% Redefine \@maketitle.
 
 \renewcommand{\@maketitle}{%
-  \newpage
-  \null
-  \vskip 2em%
+%  \newpage
+%  \null
+%  \vskip 2em%
   \begin{center}%
-    {\color{hmcgold}\LARGE \textsf{\@date\ \@sponsor\ \@department\ Clinic} \par}%
+    {\color{black}\LARGE \textsf{\@date\ \@sponsor\ \@department\ Clinic} \par}%
     {\color{hmcgold}\fontsize{100pt}{120pt}\selectfont \textsf{\textbf{\@title}} \par}%
-    \vskip 1.5em%
+%    \vskip 1.5em%
   \end{center}%
   \par
   \vskip 1.5em}
