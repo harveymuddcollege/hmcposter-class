@@ -46,12 +46,12 @@
 \setlength{\paperwidth}{48in}
 \setlength{\paperheight}{36in}
 \setlength{\textwidth}{45in}
-\setlength{\textheight}{32in}
+\setlength{\textheight}{27.5in}
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\topmargin}{0.5in}
-\setlength{\headheight}{0pt}
-\setlength{\headsep}{0pt}
+\setlength{\headheight}{4in}
+\setlength{\headsep}{0.5in}
 \setlength{\footskip}{0.5in}
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
@@ -83,7 +83,7 @@
 \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
 \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
 \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
-\renewcommand\normalsize{\fontsize{24pt}{36pt}\selectfont}
+\renewcommand\normalsize{\fontsize{24pt}{30pt}\selectfont}
 
 
 %\renewcommand\tiny{\fontsize{12}{14.4}\selectfont}
@@ -116,36 +116,31 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
-\fancyhead[LO,LE]{\raisebox{1in}{\@hmclogo}}
+\fancyhead[L]{\raisebox{1in}{\@hmclogo}}
 \ifthenelse{\isundefined\@sponsorlogo}{}{%
-  \fancyhead[RO,RE]{\resizebox{9.25in}{!}{\includegraphics{\@sponsorlogo}}}}
-\fancyfoot[RO,RE]{\small Copyright \copyright{} 2005, Harvey Mudd College
-  Department of Mathematics.}
-\renewcommand{\headrulewidth}{0pt}
+  \fancyhead[R]{\resizebox{9.25in}{!}{\includegraphics{\@sponsorlogo}}}}
+
+\fancyhead[C]{%
+%\minipage{26in}{%
+\color{black}\Large\textsf{\@date\ \@sponsor\ \@department\ Clinic}\\%
+\color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}}
+%}
+
+\fancyfoot[R]{\small \textcolor{black}{Copyright \copyright{} 2005, Harvey Mudd College
+  Department of \@department.}}
+\renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{2pt}
 
 
-%%%% Redefine \@maketitle.
 
-\renewcommand{\@maketitle}{%
-%  \newpage
-%  \null
-%  \vskip 2em%
-  \begin{center}%
-    {\color{black}\LARGE \textsf{\@date\ \@sponsor\ \@department\ Clinic} \par}%
-    {\color{hmcgold}\fontsize{100pt}{120pt}\selectfont \textsf{\textbf{\@title}} \par}%
-%    \vskip 1.5em%
-  \end{center}%
-  \par
-  \vskip 1.5em}
-
-
-%%% Make footer rule hmcgold.
+%%% Make header and footer rules hmcgold.
 %%%
 %%% This code taken from fancyhdr.sty; written by Piet van Oostrum.
 \renewcommand{\footrule}{{\color{hmcgold}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
     \vskip-\footruleskip\vskip-\footrulewidth
     \hrule\@width\headwidth\@height\footrulewidth\vskip\footruleskip}}
+\renewcommand{\headrule}{{\color{hmcgold}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+    \hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
 %%% End code from fancyhdr.sty.
 
 
@@ -181,9 +176,12 @@
 }
 %%% End code from multicol.sty.
 
+
+
+
 \newenvironment{poster}{%
 \thispagestyle{fancy}
-{\color{hmcgold}\rule{\textwidth}{2pt}}
+%{\color{hmcgold}\rule{\textwidth}{2pt}}
 \begin{multicols*}{4}
 }%
 {\end{multicols*}
