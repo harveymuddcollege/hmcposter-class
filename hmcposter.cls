@@ -47,6 +47,7 @@
 \setlength{\paperheight}{36in}
 \setlength{\textwidth}{45in}
 \setlength{\textheight}{27.5in}
+\setlength{\topmargin}{0.5in}
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\topmargin}{0.5in}
@@ -175,8 +176,6 @@
     }%
 }
 %%% End code from multicol.sty.
-
-
 
 
 \newenvironment{poster}{%
