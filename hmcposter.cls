@@ -43,9 +43,9 @@
                       %%     options for this class!
 \LoadClass{article}
 
-\setlength{\paperwidth}{48in}
+\setlength{\paperwidth}{56in}
 \setlength{\paperheight}{36in}
-\setlength{\textwidth}{45in}
+\setlength{\textwidth}{55in}
 \setlength{\textheight}{27.5in}
 \setlength{\topmargin}{0.5in}
 \setlength{\oddsidemargin}{0.5in}
@@ -79,7 +79,7 @@
 \setlength{\columnseprule}{2pt}
 
 %% Redefine the named font sizes so we can keep most of the code
-%%% intact whist still having larger type.
+%%% intact whilst still having larger type.
 
 \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
 \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
