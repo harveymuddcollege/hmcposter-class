@@ -127,8 +127,10 @@
 \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}}
 %}
 
-\fancyfoot[R]{\small \textcolor{black}{Copyright \copyright{} 2005, Harvey Mudd College
-  Department of \@department.}}
+\fancyfoot[R]{\small \textcolor{black}{Copyright \copyright{}~\number\year 
+%Harvey Mudd College Department of \@department.
+Author \@author\ Author
+}}
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{2pt}
 
