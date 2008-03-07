@@ -43,17 +43,17 @@
                       %%     options for this class!
 \LoadClass{article}
 
-\setlength{\paperwidth}{56in}
+\setlength{\paperwidth}{54in}
 \setlength{\paperheight}{36in}
-\setlength{\textwidth}{55in}
-\setlength{\textheight}{27.5in}
+\setlength{\textwidth}{50in}
+\setlength{\textheight}{28in}
 \setlength{\topmargin}{0.5in}
-\setlength{\oddsidemargin}{0.5in}
+\setlength{\oddsidemargin}{0.75in}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\topmargin}{0.5in}
 \setlength{\headheight}{4in}
 \setlength{\headsep}{0.5in}
-\setlength{\footskip}{0.5in}
+\setlength{\footskip}{1in}
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
 
@@ -61,16 +61,19 @@
 %%% Define a command to include the HMC Logo.
 \DeclareRobustCommand{\@hmclogo}{%
   \begin{minipage}{9.5in}
-    \resizebox{9.25in}{!}{\includegraphics{hmclogo}}
+    \resizebox{9.25in}{!}{\includegraphics{hmclogo-pantone}}
   \end{minipage}
 }
 
 \RequirePackage{ifthen}
 \RequirePackage{mathpazo}
 \RequirePackage[scaled=0.95]{helvet}
+\RequirePackage{sectsty}
+\RequirePackage[font=small,font=sf,labelfont=bf]{caption}[2005/06/28]
 \RequirePackage{graphics}
 \RequirePackage{color}
-\definecolor{hmcgold}{rgb}{0.545,0.404,0.188}
+%\definecolor{hmcgold}{rgb}{0.545,0.404,0.188}
+\definecolor{hmcgold}{cmyk}{0,0.2,0.5,0.3}
 \definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
 \definecolor{green}{rgb}{0,1,0}
@@ -81,11 +84,17 @@
 %% Redefine the named font sizes so we can keep most of the code
 %%% intact whilst still having larger type.
 
-\renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
-\renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
-\renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
-\renewcommand\normalsize{\fontsize{24pt}{30pt}\selectfont}
+% \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
+% \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
+% \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
+% \renewcommand\normalsize{\fontsize{24pt}{30pt}\selectfont}
 
+\renewcommand{\LARGE}{\fontsize{72pt}{86pt}\selectfont}
+\renewcommand{\Large}{\fontsize{64pt}{72pt}\selectfont}
+\renewcommand{\large}{\fontsize{48pt}{60pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{36pt}{44pt}\selectfont}
+\renewcommand{\small}{\fontsize{30pt}{36pt}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{24pt}{30pt}\selectfont}
 
 %\renewcommand\tiny{\fontsize{12}{14.4}\selectfont}
 %\renewcommand\scriptsize{\fontsize{16.8}{19.2}\selectfont}
@@ -113,6 +122,17 @@
 
 
 %%% Set up the header.
+
+\newlength{\ignored@length}
+\newcommand{\set@ess}[1]{%
+  \renewcommand{\and}{%
+    \global\def\@ess{s}%
+  }%
+  \global\def\@ess{}%
+  \settowidth{\ignored@length}{#1}
+}
+\newcommand{\@andcommaspace}{, }
+
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
@@ -179,6 +199,7 @@ Author \@author\ Author
 }
 %%% End code from multicol.sty.
 
+\setlength{\multicolsep}{2em}
 
 \newenvironment{poster}{%
 \thispagestyle{fancy}
@@ -189,31 +210,6 @@ Author \@author\ Author
 }
 
 
-%\newcommand\section{\@startsection {section}{1}{\z@}%
-%                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
-%                                   {2.3ex \@plus.2ex}%
-%                                   {\normalfont\Large\bfseries}}
-%\newcommand\subsection{\@startsection{subsection}{2}{\z@}%
-%                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-%                                     {1.5ex \@plus .2ex}%
-%                                     {\normalfont\large\bfseries}}
-%\newcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-%                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
-%                                     {1.5ex \@plus .2ex}%
-%                                     {\normalfont\normalsize\bfseries}}
-%\newcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-%                                    {3.25ex \@plus1ex \@minus.2ex}%
-%                                    {-1em}%
-%                                    {\normalfont\normalsize\bfseries}}
-%\newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
-%                                       {3.25ex \@plus1ex \@minus .2ex}%
-%                                       {-1em}%
-%                                      {\normalfont\normalsize\bfseries}}
-
-% \newenvironment{figure}
-%                {\@float{figure}}
-%                {\end@float}
-
 \renewenvironment{figure}
                {\def\@captype {figure}}
                {}
@@ -223,5 +219,11 @@ Author \@author\ Author
                {}
 
 
+%%% Make section headers sans-serif.
+
+\allsectionsfont{\sffamily}
+
+%%% Suppress section numbering.
+\renewcommand{\@seccntformat}[1]{\relax}
 
 \endinput
