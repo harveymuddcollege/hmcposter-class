@@ -25,7 +25,7 @@
 %          1250 N. Dartmouth Ave.
 %          Claremont, CA 91711
 %
-% $Id: hmcposter.cls 143 2005-08-16 18:24:53Z cmc $
+% $Id:$
 % 
 % \fi
 %%
@@ -43,12 +43,12 @@
                       %%     options for this class!
 \LoadClass{article}
 
-\setlength{\paperwidth}{56in}
+\setlength{\paperwidth}{54in}
 \setlength{\paperheight}{36in}
-\setlength{\textwidth}{54in}
-\setlength{\textheight}{26in}
+\setlength{\textwidth}{50in}
+\setlength{\textheight}{28in}
 \setlength{\topmargin}{0.5in}
-\setlength{\oddsidemargin}{0.5in}
+\setlength{\oddsidemargin}{0.75in}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\topmargin}{0.5in}
 \setlength{\headheight}{4in}
@@ -140,8 +140,8 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
-\fancyhead[L]{\raisebox{1in}{\@hmclogo}}
-\fancyhead[R]{\resizebox{9.25in}{!}{\includegraphics{hmcmath-hex-logo}}}
+\fancyhead[L]{\raisebox{2in}{\@hmclogo}}
+\fancyhead[R]{\resizebox{7.5in}{!}{\includegraphics{hmcmath-hexen-logo}}}
 
 \fancyhead[C]{%
 {\color{black}\Large\textsf{\@class}\\}%
