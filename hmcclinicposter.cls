@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% hmcposter.cls -- LaTeX class to create posters
+% hmcclinicposter.cls -- LaTeX class to create posters
 % 
 % Copyright (C) 2005 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
@@ -33,7 +33,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hmcposter}[2005/02/25 HMC Mathematics LaTeX poster class]
+\ProvidesClass{hmcclinicposter}[2008/03/11 HMC Mathematics LaTeX poster class]
 
 %%% Declare and set some options.
 
