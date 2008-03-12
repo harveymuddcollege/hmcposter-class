@@ -120,6 +120,9 @@
 \def\sponsorlogo#1{\gdef\@sponsorlogo{#1}}
 \def\@sponsorlogo{\@latex@warning@no@line{No \noexpand\sponsorlogo given}}
 
+\providecommand{\copyrightholder}[1]{%
+  \gdef\@copyrightholder{#1}}
+
 
 %%% Set up the header.
 
@@ -147,10 +150,15 @@
 \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}}
 %}
 
-\fancyfoot[R]{\small \textcolor{black}{Copyright \copyright{}~\number\year 
-%Harvey Mudd College Department of \@department.
-Author \@author\ Author
-}}
+
+\fancyfoot[R]{
+\ifthenelse{\isundefined{\@copyrightholder}}%
+{}%
+{\small \textcolor{black}{Copyright \copyright{}~\number\year{}
+    \@copyrightholder}}
+}
+
+
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{2pt}
 
