@@ -120,6 +120,10 @@
 \def\sponsorlogo#1{\gdef\@sponsorlogo{#1}}
 \def\@sponsorlogo{\@latex@warning@no@line{No \noexpand\sponsorlogo given}}
 
+\def\sponsorlogowidth#1{\gdef\@sponsorlogowidth{#1}}
+\def\@sponsorlogowidth{8in}
+
+
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
 
@@ -142,7 +146,7 @@
 \fancyhf{}                      % Clear all fields.
 \fancyhead[L]{\raisebox{1in}{\@hmclogo}}
 \ifthenelse{\isundefined\@sponsorlogo}{}{%
-  \fancyhead[R]{\resizebox{9.25in}{!}{\includegraphics{\@sponsorlogo}}}}
+  \fancyhead[R]{\resizebox{\@sponsorlogowidth}{!}{\includegraphics{\@sponsorlogo}}}}
 
 \fancyhead[C]{%
 %\minipage{26in}{%
