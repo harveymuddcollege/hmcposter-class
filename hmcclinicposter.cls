@@ -2,7 +2,7 @@
 %
 % hmcclinicposter.cls -- LaTeX class to create posters
 % 
-% Copyright (C) 2005 Claire M. Connelly and 
+% Copyright (C) 2005-2008 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
 % 
 % This program is free software; you can redistribute it and/or modify
@@ -61,7 +61,7 @@
 %%% Define a command to include the HMC Logo.
 \DeclareRobustCommand{\@hmclogo}{%
   \begin{minipage}{9.5in}
-    \resizebox{9.25in}{!}{\includegraphics{hmclogo-pantone}}
+    \resizebox{9in}{!}{\includegraphics{hmclogo-pantone}}
   \end{minipage}
 }
 
@@ -84,11 +84,6 @@
 %% Redefine the named font sizes so we can keep most of the code
 %%% intact whilst still having larger type.
 
-% \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
-% \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
-% \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
-% \renewcommand\normalsize{\fontsize{24pt}{30pt}\selectfont}
-
 \renewcommand{\LARGE}{\fontsize{72pt}{86pt}\selectfont}
 \renewcommand{\Large}{\fontsize{64pt}{72pt}\selectfont}
 \renewcommand{\large}{\fontsize{48pt}{60pt}\selectfont}
@@ -108,7 +103,6 @@
 %\renewcommand\Huge{\fontsize{60}{72}\selectfont}
 
 
-
 %%% Define some new fields for use in the header/title.
 
 \def\sponsor#1{\gdef\@sponsor{#1}}
@@ -121,8 +115,7 @@
 \def\@sponsorlogo{\@latex@warning@no@line{No \noexpand\sponsorlogo given}}
 
 \def\sponsorlogowidth#1{\gdef\@sponsorlogowidth{#1}}
-\def\@sponsorlogowidth{8in}
-
+\def\@sponsorlogowidth{2in}
 
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
@@ -144,15 +137,24 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
-\fancyhead[L]{\raisebox{1in}{\@hmclogo}}
+\fancyhead[L]{%
+  \raisebox{1.5in}{\@hmclogo}
+}
 \ifthenelse{\isundefined\@sponsorlogo}{}{%
-  \fancyhead[R]{\resizebox{\@sponsorlogowidth}{!}{\includegraphics{\@sponsorlogo}}}}
+  \fancyhead[R]{%
+%    \resizebox{\@sponsorlogowidth}{\@sponsorlogoheight}{%
+    \resizebox{!}{\@sponsorlogowidth}{%
+      \includegraphics{\@sponsorlogo}
+    }
+  }
+}
 
 \fancyhead[C]{%
-%\minipage{26in}{%
-\color{black}\Large\textsf{\@date\ \@sponsor\ \@department\ Clinic}\\%
-\color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}}
-%}
+  \begin{center}
+    \color{black}\Large\textsf{\@date\ \@sponsor\ \@department\ Clinic}\\%
+    \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}
+  \end{center}
+}
 
 
 \fancyfoot[R]{
