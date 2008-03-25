@@ -1,21 +1,49 @@
-\documentclass{hmcthesisposter}
+\documentclass{hmcclinicposter}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{booktabs}
 \usepackage{subfig}
 \usepackage{amsmath}
-\usepackage{alltt}
 \usepackage{textcomp}
 \usepackage{url}
 
+%% Simple name of the department.
 \department{Mathematics}
-\author{Claire Connelly}
-\year{2006}
-\class{Math 197: Senior Thesis}
-\advisor{Melissa O'Neill \and Lesley Ward}
 
+%% For a Clinic poster, there is no author (the author is the team).
+
+%% The year is provided using the \date command.
+\date{2008}
+
+%% The title of the poster should probably be the name of your
+%% Clinic project.
 \title{Putting Together a Poster for Presentation Days}
 
+%% Your sponsoring institution's name.
+\sponsor{Sponsoring Corporation}
+
+%% The name (base name only; no extension) of an image file with
+%% the sponsor's logo.  Ideally, you'll have a PDF version that is
+%% resolution-independent.  If not, you'll need a high-resolution
+%% PNG file to allow us to print it at a large size without the
+%% image becoming blurred.
+\sponsorlogo{giganto-logo}
+
+%% Optional -- if your sponsor's logo looks too small or too big,
+%% you can adjust its width with the \sponsorlogowidth command.
+%% (The height of the logo image is automatically adjusted to
+%% preserve the image's aspect ratio.)
+%%
+%% Note that the argument must be a TeX width; for example, 3in,
+%% 5cm, 120pt, etc.  The default width is 2in.
+\sponsorlogowidth{3in}
+
+
+%% Optional -- if your sponsor is hot about their intellectual
+%% property and insists on having a copyright statement on the
+%% poster, you can use the \copyrightholder command to supply a
+%% name for a copyright holder for your poster.
+% \copyrightholder{Sponsoring Corporation, Inc.}
 
 \providecommand{\bibtex}{{\rmfamily B\kern-.05em%
     \textsc{i\kern-.025em b}\kern-.08em%
@@ -102,8 +130,6 @@ Figure~\ref{fig:small-multiples}\subref{fig:small-mults-135}.
   \caption[Small multiples]{Small multiples.}%
   \label{fig:small-multiples}
 \end{figure}
-
-%Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ipsum diam, placerat et, blandit vitae, tincidunt nec, dolor. Fusce pede. Donec faucibus, purus eu faucibus pellentesque, elit arcu fermentum mauris, quis commodo eros odio ut sem. Vestibulum vulputate volutpat pede. Maecenas ligula. Donec ac ipsum. Vivamus felis odio, tincidunt elementum, vehicula eu, semper vitae, lorem. Maecenas tempor porta elit. Nam non orci. Nam nec ligula. Quisque enim dui, tempus id, rutrum nec, sollicitudin ut, odio.
 
 
 \subsection{Tables}
