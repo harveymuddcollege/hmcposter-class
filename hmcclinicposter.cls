@@ -57,14 +57,7 @@
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
 
-
-%%% Define a command to include the HMC Logo.
-\DeclareRobustCommand{\@hmclogo}{%
-  \begin{minipage}{9.5in}
-    \resizebox{9in}{!}{\includegraphics{hmclogo-pantone}}
-  \end{minipage}
-}
-
+%% Require some packages.
 \RequirePackage{ifthen}
 \RequirePackage{mathpazo}
 \RequirePackage[scaled=0.95]{helvet}
@@ -82,7 +75,7 @@
 \setlength{\columnseprule}{2pt}
 
 %% Redefine the named font sizes so we can keep most of the code
-%%% intact whilst still having larger type.
+%% intact whilst still having larger type.
 
 \renewcommand{\LARGE}{\fontsize{72pt}{86pt}\selectfont}
 \renewcommand{\Large}{\fontsize{64pt}{72pt}\selectfont}
@@ -134,6 +127,15 @@
 \newcommand{\@andcommaspace}{, }
 
 
+%% Define a command to include the HMC Logo.
+\DeclareRobustCommand{\@hmclogo}{%
+  \begin{minipage}{9.5in}
+    \resizebox{9in}{!}{\includegraphics{hmclogo-pantone}}
+  \end{minipage}
+}
+
+
+
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
@@ -142,7 +144,6 @@
 }
 \ifthenelse{\isundefined\@sponsorlogo}{}{%
   \fancyhead[R]{%
-%    \resizebox{\@sponsorlogowidth}{\@sponsorlogoheight}{%
     \resizebox{!}{\@sponsorlogowidth}{%
       \includegraphics{\@sponsorlogo}
     }
