@@ -1,8 +1,8 @@
 % \iffalse meta-comment
 %
-% hmcposter.cls -- LaTeX class to create posters
+% hmcthesisposter.cls -- LaTeX class to create posters
 % 
-% Copyright (C) 2005 Claire M. Connelly and 
+% Copyright (C) 2005-2008 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
 % 
 % This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hmcposter}[2005/02/25 HMC Mathematics LaTeX poster class]
+\ProvidesClass{hmcthesisposter}[2008/04/01 HMC Mathematics LaTeX poster class]
 
 %%% Declare and set some options.
 
@@ -57,14 +57,7 @@
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
 
-
-%%% Define a command to include the HMC Logo.
-\DeclareRobustCommand{\@hmclogo}{%
-  \begin{minipage}{9.5in}
-    \resizebox{9.25in}{!}{\includegraphics{hmclogo-pantone}}
-  \end{minipage}
-}
-
+%% Require some packages.
 \RequirePackage{ifthen}
 \RequirePackage{mathpazo}
 \RequirePackage[scaled=0.95]{helvet}
@@ -82,12 +75,7 @@
 \setlength{\columnseprule}{2pt}
 
 %% Redefine the named font sizes so we can keep most of the code
-%%% intact whilst still having larger type.
-
-% \renewcommand\LARGE{\fontsize{64pt}{72pt}\selectfont}
-% \renewcommand\Large{\fontsize{48pt}{60pt}\selectfont}
-% \renewcommand\large{\fontsize{36pt}{44pt}\selectfont}
-% \renewcommand\normalsize{\fontsize{24pt}{30pt}\selectfont}
+%% intact whilst still having larger type.
 
 \renewcommand{\LARGE}{\fontsize{72pt}{86pt}\selectfont}
 \renewcommand{\Large}{\fontsize{64pt}{72pt}\selectfont}
@@ -123,6 +111,9 @@
 \def\advisor#1{\gdef\@advisor{#1}}
 \def\@advisor{\@latex@warning@no@line{No \noexpand\advisor given}}
 
+\providecommand{\copyrightholder}[1]{%
+  \gdef\@copyrightholder{#1}}
+
 
 %%% Set up the header.
 
@@ -137,29 +128,53 @@
 \newcommand{\@andcommaspace}{, }
 
 
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}                      % Clear all fields.
-\fancyhead[L]{\raisebox{2in}{\@hmclogo}}
-\fancyhead[R]{\resizebox{7.5in}{!}{\includegraphics{hmcmath-hexen-logo}}}
-
-\fancyhead[C]{%
-{\color{black}\Large\textsf{\@class}\\}%
-{\color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
-{\color{black}\Large\textsf{\@author}}
+%% Define a command to include the HMC Logo.
+\DeclareRobustCommand{\@hmclogo}{%
+  \begin{minipage}{9.5in}
+    \resizebox{9in}{!}{\includegraphics{hmclogo-pantone}}
+  \end{minipage}
 }
 
 
-\fancyfoot[R]{\textcolor{black}{Copyright \copyright{}~\@year\ %
-%Harvey Mudd College Department of \@department.
-\@author}}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}                      % Clear all fields.
+
+\fancyhead[L]{\raisebox{1.5in}{\@hmclogo}}
+\fancyhead[R]{\resizebox{7.5in}{!}{\includegraphics{hmcmath-hexen-logo}}}
+
+
+\fancyhead[C]{%
+\begin{center}
+  {\color{black}\Large\textsf{\@class}\\}%
+  {\color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
+  {\color{black}\Large\textsf{\@author}\\[-0.5em]}
+\end{center}
+}
+
+
+\fancyfoot[R]{
+\ifthenelse{\isundefined{\@copyrightholder}}%
+{}%
+{\small \textcolor{black}{Copyright \copyright{}~\number\year{}
+    \@copyrightholder}}
+}
+
+
+\fancyfoot[R]{%
+  \ifthenelse{\isundefined{\@copyrightholder}}%
+  {}% Do nothing.
+  {\textcolor{black}{Copyright \copyright{}~\@year\
+      \@copyrightholder}}
+}
 \fancyfoot[L]{\textcolor{black}{%
     \set@ess{\@advisor}%
     \textbf{Advisor\@ess:}
-      \global\let\and\@andcommaspace
-      \@advisor%
-%Advisor: \@advisor
-}}
+    \global\let\and\@andcommaspace
+    \@advisor%
+  }
+}
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{2pt}
 
