@@ -1,4 +1,5 @@
-\documentclass{hmcclinicposter}
+%% Use the hmcposter class with the clinic document-class option.
+\documentclass[clinic]{hmcposter}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{booktabs}
@@ -7,36 +8,42 @@
 \usepackage{textcomp}
 \usepackage{url}
 
-%% Simple name of the department.
-\department{Mathematics}
-
 %% For a Clinic poster, there is no author (the author is the team).
 
-%% The year is provided using the \date command.
-\date{2008}
+%% Project Year.
+%% The year is provided using the \year command.
+\year{2008}
 
+%% Project Title.
 %% The title of the poster should probably be the name of your
 %% Clinic project.
 \title{Putting Together a Poster for Presentation Days}
 
-%% Your sponsoring institution's name.
-\sponsor{Sponsoring Corporation}
 
+%% Advisor(s) name or names.  Separate with \and.
+\advisor{Melissa O'Neill \and Lesley Ward}
+
+
+%% Sponsor's Name.
+%% Your sponsoring institution's name.
+\sponsor{Harvey Mudd College}
+
+%% Sponsor's Logo.
 %% The name (base name only; no extension) of an image file with
 %% the sponsor's logo.  Ideally, you'll have a PDF version that is
 %% resolution-independent.  If not, you'll need a high-resolution
 %% PNG file to allow us to print it at a large size without the
 %% image becoming blurred.
-\sponsorlogo{giganto-logo}
+\sponsorlogo{hmcmath-hexen-logo}
 
 %% Optional -- if your sponsor's logo looks too small or too big,
 %% you can adjust its width with the \sponsorlogowidth command.
 %% (The height of the logo image is automatically adjusted to
 %% preserve the image's aspect ratio.)
 %%
-%% Note that the argument must be a TeX width; for example, 3in,
+%% Note that the argument must be a TeX length; for example, 3in,
 %% 5cm, 120pt, etc.  The default width is 2in.
-\sponsorlogowidth{3in}
+\sponsorlogowidth{4in}
 
 
 %% Optional -- if your sponsor is hot about their intellectual
@@ -45,6 +52,8 @@
 %% name for a copyright holder for your poster.
 % \copyrightholder{Sponsoring Corporation, Inc.}
 
+
+%% Define the \BibTeX command, used in our example document.
 \providecommand{\bibtex}{{\rmfamily B\kern-.05em%
     \textsc{i\kern-.025em b}\kern-.08em%
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -130,7 +139,6 @@ Figure~\ref{fig:small-multiples}\subref{fig:small-mults-135}.
   \caption[Small multiples]{Small multiples.}%
   \label{fig:small-multiples}
 \end{figure}
-
 
 \subsection{Tables}
 
@@ -230,9 +238,14 @@ As usual, you want to cite anything that you've taken from other
 sources, and provide the details here.  If you don't want to use
 \bibtex, you can just put an itemized list here instead.
 
+% Force a column break here so the references begin the next column.
+\columnbreak
+
+%% References.
+%% Note that BibTeX will add its own section-level header, ``References''.
+
 \bibliographystyle{hmcmath}
 \bibliography{sampleposter}
-
 
 
 \section{Acknowledgments}
@@ -251,9 +264,9 @@ posters. \citeyearpar{purrington-sciposters}
 
 \section{For Further Information}
 
-Possibly the most important section of your poster, here you want to
-tell people how they can find out more about your research.  Be sure
-to include
+Possibly the most important section of your poster!  Tell people
+how they can find out more about your research.  Be sure to
+include
 \begin{itemize}
 \item Your e-mail address.  Mine's \url{cmc@math.hmc.edu}.
 \item A URL for a website with more information.  \url{http://www.math.hmc.edu/computing/support/printing/posters/}.

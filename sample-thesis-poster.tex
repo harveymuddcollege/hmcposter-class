@@ -1,4 +1,5 @@
-\documentclass{hmcthesisposter}
+%% Use the hmcposter class with the thesis document-class option.
+\documentclass[thesis]{hmcposter}
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{booktabs}
@@ -7,10 +8,28 @@
 \usepackage{textcomp}
 \usepackage{url}
 
-%% Simple name of the department.
-\department{Mathematics}
-%% Author of the thesis/project.
+%% Author of the thesis.
 \author{Claire Connelly}
+
+%% The year of your thesis poster's creation.
+\year{2006--8}
+
+%% Thesis Title.
+\title{Putting Together a Poster for Presentation Days}
+
+%% The name of the class for which the poster was created.
+%% Generally we see posters for thesis and Clinic, but sometimes
+%% other classes require or allow the creation of posters to
+%% communicate the results of a project.
+%% 
+%% Use the format Math nnn: Class Title.
+\class{Math 197: Senior Thesis}
+
+%% Advisor(s) name or names.  Separate with \and.
+\advisor{Melissa O'Neill \and Lesley Ward}
+
+%% Reader(s) name or names.  Separate with \and.
+\reader{Melissa O'Neill \and Charlie Watts}
 
 %% Optional -- if you are especially concerned about intellectual
 %% property issues (maybe you have some potentially patentable
@@ -24,25 +43,11 @@
 %% poster with someone else (e.g., a student collaborator, your
 %% advisor, an organization).
 %%
-% \copyrightholder{Sponsoring Corporation, Inc.}
 \copyrightholder{Claire~M. Connelly and the Department of
   Mathematics, Harvey Mudd College}
 
-%% The year of your thesis poster's creation.
-\year{2006--8}
 
-%% The name of the class for which the poster was created.
-%% Generally we see posters for thesis and Clinic, but sometimes
-%% other classes require or allow the creation of posters to
-%% communicate the results of a project.
-\class{Math 197: Senior Thesis}
-
-%% Advisor name or names.  Separate with \and.
-\advisor{Melissa O'Neill \and Lesley Ward}
-
-\title{Putting Together a Poster for Presentation Days}
-
-
+%% Define the \BibTeX command, used in our example document.
 \providecommand{\bibtex}{{\rmfamily B\kern-.05em%
     \textsc{i\kern-.025em b}\kern-.08em%
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -128,9 +133,6 @@ Figure~\ref{fig:small-multiples}\subref{fig:small-mults-135}.
   \caption[Small multiples]{Small multiples.}%
   \label{fig:small-multiples}
 \end{figure}
-
-%Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ipsum diam, placerat et, blandit vitae, tincidunt nec, dolor. Fusce pede. Donec faucibus, purus eu faucibus pellentesque, elit arcu fermentum mauris, quis commodo eros odio ut sem. Vestibulum vulputate volutpat pede. Maecenas ligula. Donec ac ipsum. Vivamus felis odio, tincidunt elementum, vehicula eu, semper vitae, lorem. Maecenas tempor porta elit. Nam non orci. Nam nec ligula. Quisque enim dui, tempus id, rutrum nec, sollicitudin ut, odio.
-
 
 \subsection{Tables}
 
@@ -230,9 +232,14 @@ As usual, you want to cite anything that you've taken from other
 sources, and provide the details here.  If you don't want to use
 \bibtex, you can just put an itemized list here instead.
 
+% Force a column break here so the references begin the next column.
+\columnbreak
+
+%% References.
+%% Note that BibTeX will add its own section-level header, ``References''.
+
 \bibliographystyle{hmcmath}
 \bibliography{sampleposter}
-
 
 
 \section{Acknowledgments}
@@ -251,9 +258,9 @@ posters. \citeyearpar{purrington-sciposters}
 
 \section{For Further Information}
 
-Possibly the most important section of your poster, here you want to
-tell people how they can find out more about your research.  Be sure
-to include
+Possibly the most important section of your poster!  Tell people
+how they can find out more about your research.  Be sure to
+include
 \begin{itemize}
 \item Your e-mail address.  Mine's \url{cmc@math.hmc.edu}.
 \item A URL for a website with more information.  \url{http://www.math.hmc.edu/computing/support/printing/posters/}.
