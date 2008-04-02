@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% hmcthesisposter.cls -- LaTeX class to create posters
+% hmcposter.cls -- LaTeX class to create posters
 % 
 % Copyright (C) 2005-2008 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
@@ -33,16 +33,31 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hmcthesisposter}[2008/04/01 HMC Mathematics LaTeX poster class]
+\ProvidesClass{hmcposter}[2008/04/01 HMC Mathematics LaTeX poster class]
 
 %%% Declare and set some options.
 
+%% Set up ifs for Clinic and thesis.
+\newif\if@clinic
+\@clinicfalse
+\newif\if@thesis
+\@thesisfalse
+
+%% Providing the clinic and thesis document-class options.
+\DeclareOption{clinic}{\@clinictrue}
+\DeclareOption{thesis}{\@thesistrue}
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 %\ExecuteOptions{}
-\ProcessOptions\relax %% <-- Change this if we decide to declare some
-                      %%     options for this class!
+\ProcessOptions
+
 \LoadClass{article}
 
+
+%% Include local configuration file, if any.
+\InputIfFileExists{hmcposter.cfg}{}{}
+
+%% Set some dimensions for layout.
 \setlength{\paperwidth}{54in}
 \setlength{\paperheight}{36in}
 \setlength{\textwidth}{50in}
@@ -84,32 +99,39 @@
 \renewcommand{\small}{\fontsize{30pt}{36pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{24pt}{30pt}\selectfont}
 
-%\renewcommand\tiny{\fontsize{12}{14.4}\selectfont}
-%\renewcommand\scriptsize{\fontsize{16.8}{19.2}\selectfont}
-%\renewcommand\footnotesize{\fontsize{19.2}{22.8}\selectfont}
-%\renewcommand\small{\fontsize{21.6}{26.4}\selectfont}
-%\renewcommand\normalsize{\fontsize{24}{28.8}\selectfont}
-%\renewcommand\large{\fontsize{28.8}{33.6}\selectfont}
-%\renewcommand\Large{\fontsize{33.6}{43.2}\selectfont}
-%\renewcommand\LARGE{\fontsize{40.8}{52.8}\selectfont}
-%\renewcommand\huge{\fontsize{48}{60}\selectfont}
-%\renewcommand\Huge{\fontsize{60}{72}\selectfont}
-
-
-
 %%% Define some new fields for use in the header/title.
 
+%% For a Clinic poster.
+\if@clinic
+\def\sponsor#1{\gdef\@sponsor{#1}}
+\def\@sponsor{\@latex@warning@no@line{No \noexpand\sponsor given}}
+
+\def\sponsorlogo#1{\gdef\@sponsorlogo{#1}}
+\def\@sponsorlogo{\@latex@warning@no@line{No \noexpand\sponsorlogo given}}
+
+\def\sponsorlogowidth#1{\gdef\@sponsorlogowidth{#1}}
+\def\@sponsorlogowidth{2in}
+\fi
+
+%% For a thesis poster.
+\if@thesis
 \def\class#1{\gdef\@class{#1}}
 \def\@class{\@latex@warning@no@line{No \noexpand\class given}}
+
+\providecommand{\reader}[1]{%
+  \gdef\@reader{#1}}
+\fi
+
+%% Shared Definitions
+\def\department#1{\gdef\@department{#1}}
+\def\@department{\@latex@warning@no@line{No \noexpand\department given}}
+\def\@department{\@latex@warning@no@line{No \noexpand\department given}}
 
 \def\year#1{\gdef\@year{#1}}
 \def\@year{\@latex@warning@no@line{No \noexpand\year given}}
 
-\def\department#1{\gdef\@department{#1}}
-\def\@department{\@latex@warning@no@line{No \noexpand\department given}}
-
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\@advisor{\@latex@warning@no@line{No \noexpand\advisor given}}
+\providecommand{\advisor}[1]{%
+  \gdef\@advisor{#1}}
 
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
@@ -136,43 +158,78 @@
 }
 
 
+%%% Set up the header for the poster.
 
+%% Use fancyhdr.
 \RequirePackage{fancyhdr}
+
+%% Lay out the header
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
 
+%% For Clinic
+\if@clinic
+\fancyhead[L]{\raisebox{1.5in}{\@hmclogo}}
+
+\ifthenelse{\isundefined\@sponsorlogo}{}{%
+  \fancyhead[R]{\resizebox{!}{\@sponsorlogowidth}{%
+      \includegraphics{\@sponsorlogo}}}}
+\fi
+
+%% For thesis.
+\if@thesis
 \fancyhead[L]{\raisebox{1.5in}{\@hmclogo}}
 \fancyhead[R]{\resizebox{7.5in}{!}{\includegraphics{hmcmath-hexen-logo}}}
+\fi
 
 
+%% For Clinic
+\if@clinic
 \fancyhead[C]{%
-\begin{center}
-  {\color{black}\Large\textsf{\@class}\\}%
-  {\color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
-  {\color{black}\Large\textsf{\@author}\\[-0.5em]}
-\end{center}
+  \begin{center}
+    \color{black}\Large\textsf{\@year\ \@sponsor\ \@department\ Clinic}\\%
+    \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}
+  \end{center}
 }
+  \fi
 
-
-\fancyfoot[R]{
-\ifthenelse{\isundefined{\@copyrightholder}}%
-{}%
-{\small \textcolor{black}{Copyright \copyright{}~\number\year{}
-    \@copyrightholder}}
+%% For thesis
+\if@thesis
+\fancyhead[C]{%
+  \begin{center}
+    {\color{black}\Large\textsf{\@class}\\}%
+    {\color{dkblue}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
+    {\color{black}\Large\textsf{\@author}\\[-0.5em]}
+  \end{center}
 }
+\fi
 
 
+%% Define the footer.
 \fancyfoot[R]{%
   \ifthenelse{\isundefined{\@copyrightholder}}%
   {}% Do nothing.
   {\textcolor{black}{Copyright \copyright{}~\@year\
       \@copyrightholder}}
 }
-\fancyfoot[L]{\textcolor{black}{%
-    \set@ess{\@advisor}%
-    \textbf{Advisor\@ess:}
-    \global\let\and\@andcommaspace
-    \@advisor%
+\fancyfoot[L]{%
+  \ifthenelse{\isundefined{\@advisor}}%
+  {}% Do nothing.
+  {\textcolor{black}{%
+      \set@ess{\@advisor}%
+      \textbf{Advisor\@ess:}
+      \global\let\and\@andcommaspace
+      \@advisor%
+    }
+  }\quad%
+  \ifthenelse{\isundefined{\@reader}}%
+  {}% Do nothing.
+  {\textcolor{black}{%
+      \set@ess{\@reader}%
+      \textbf{Reader\@ess:}
+      \global\let\and\@andcommaspace
+      \@reader%
+    }
   }
 }
 \renewcommand{\headrulewidth}{2pt}
@@ -180,18 +237,25 @@
 
 
 
-%%% Make header and footer rules hmcgold.
+%%% Colorize header and footer rules.
 %%%
 %%% This code taken from fancyhdr.sty; written by Piet van Oostrum.
-\renewcommand{\footrule}{{\color{hmcgold}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+
+\newcommand{\@rulecolor}{hmcgold}
+
+\if@thesis
+\renewcommand{\@rulecolor}{dkblue}
+\fi
+
+\renewcommand{\footrule}{{\color{\@rulecolor}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
     \vskip-\footruleskip\vskip-\footrulewidth
     \hrule\@width\headwidth\@height\footrulewidth\vskip\footruleskip}}
-\renewcommand{\headrule}{{\color{hmcgold}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+\renewcommand{\headrule}{{\color{\@rulecolor}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
     \hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
 %%% End code from fancyhdr.sty.
 
 
-%%% Make vertical rules hmcgold.
+%%% Set color of vertical rules.
 %%%
 %%% This code is modified from the code in multicol.sty; written by
 %%% Frank Mittelbach and part of standard LaTeX.
@@ -216,7 +280,7 @@
    \moveright\multicol@leftmargin
     \hbox to\full@width{%
      \process@cols\mult@gfirstbox{\box\count@
-       \hss{\color{hmcgold}\vrule\@width\columnseprule}\hss}%
+       \hss{\color{\@rulecolor}\vrule\@width\columnseprule}\hss}%
      \box\mult@rightbox
       \rlap{\phantom p}%
     }%
