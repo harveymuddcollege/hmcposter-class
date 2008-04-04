@@ -25,7 +25,7 @@
 %          1250 N. Dartmouth Ave.
 %          Claremont, CA 91711
 %
-% $Id:$
+% $Id$
 % 
 % \fi
 %%
@@ -60,7 +60,7 @@
 %% Set some dimensions for layout.
 \setlength{\paperwidth}{54in}
 \setlength{\paperheight}{36in}
-\setlength{\textwidth}{50in}
+\setlength{\textwidth}{50.5in}
 \setlength{\textheight}{28in}
 \setlength{\topmargin}{0.5in}
 \setlength{\oddsidemargin}{0.75in}
