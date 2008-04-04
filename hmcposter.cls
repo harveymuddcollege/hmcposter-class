@@ -76,11 +76,11 @@
 \RequirePackage{ifthen}
 \RequirePackage{mathpazo}
 \RequirePackage[scaled=0.95]{helvet}
+\renewcommand{\ttdefault}{pcr}
 \RequirePackage{sectsty}
 \RequirePackage[font=small,font=sf,labelfont=bf]{caption}[2005/06/28]
 \RequirePackage{graphics}
 \RequirePackage{color}
-%\definecolor{hmcgold}{rgb}{0.545,0.404,0.188}
 \definecolor{hmcgold}{cmyk}{0,0.2,0.5,0.3}
 \definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
