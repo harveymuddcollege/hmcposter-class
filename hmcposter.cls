@@ -2,7 +2,7 @@
 %
 % hmcposter.cls -- LaTeX class to create posters
 % 
-% Copyright (C) 2005-2008 Claire M. Connelly and 
+% Copyright (C) 2005-2010 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
 % 
 % This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hmcposter}[2008/04/01 HMC Mathematics LaTeX poster class]
+\ProvidesClass{hmcposter}[2010/12/13 HMC Mathematics LaTeX poster class]
 
 %%% Declare and set some options.
 
@@ -127,8 +127,8 @@
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
 
-\def\year#1{\gdef\@year{#1}}
-\def\@year{\@latex@warning@no@line{No \noexpand\year given}}
+\def\posteryear#1{\gdef\@posteryear{#1}}
+\def\@posteryear{\@latex@warning@no@line{No \noexpand\posteryear given}}
 
 \providecommand{\advisor}[1]{%
   \gdef\@advisor{#1}}
@@ -187,7 +187,7 @@
 \if@clinic
 \fancyhead[C]{%
   \begin{center}
-    \color{black}\Large\textsf{\@year\ \@sponsor\ \@department\ Clinic}\\%
+    \color{black}\Large\textsf{\@posteryear\ \@sponsor\ \@department\ Clinic}\\%
     \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}
   \end{center}
 }
@@ -209,7 +209,7 @@
 \fancyfoot[R]{%
   \ifthenelse{\isundefined{\@copyrightholder}}%
   {}% Do nothing.
-  {\textcolor{black}{Copyright \copyright{}~\@year\
+  {\textcolor{black}{Copyright \copyright{}~\@posteryear\
       \@copyrightholder}}
 }
 \fancyfoot[L]{%
