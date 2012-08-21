@@ -118,6 +118,9 @@
 \def\class#1{\gdef\@class{#1}}
 \def\@class{\@latex@warning@no@line{No \noexpand\class given}}
 
+\providecommand{\advisor}[1]{%
+  \gdef\@advisor{#1}}
+
 \providecommand{\reader}[1]{%
   \gdef\@reader{#1}}
 \fi
@@ -129,9 +132,6 @@
 
 \def\posteryear#1{\gdef\@posteryear{#1}}
 \def\@posteryear{\@latex@warning@no@line{No \noexpand\posteryear given}}
-
-\providecommand{\advisor}[1]{%
-  \gdef\@advisor{#1}}
 
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
