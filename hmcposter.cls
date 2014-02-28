@@ -225,7 +225,7 @@
   {}% Do nothing.
   {\textcolor{black}{%
       \set@ess{\@advisor}%
-      \textbf{Advisor\@ess:}
+      \hspace{-1em}\textbf{Advisor\@ess:}
       \global\let\and\@andcommaspace
       \@advisor%
     }
@@ -234,7 +234,7 @@
   {}% Do nothing.
   {\textcolor{black}{%
       \set@ess{\@reader}%
-      \textbf{Reader\@ess:}
+      \\\hspace{-0.75em}\textbf{Reader\@ess:}
       \global\let\and\@andcommaspace
       \@reader%
     }
