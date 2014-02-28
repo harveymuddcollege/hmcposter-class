@@ -155,7 +155,7 @@
   \global\def\@ess{}%
   \settowidth{\ignored@length}{#1}
 }
-\newcommand{\@andcommaspace}{, }
+\newcommand{\@andcommaspace}{\unskip, }
 
 
 %% Define a command to include the HMC Logo.
