@@ -2,7 +2,7 @@
 %
 % hmcposter.cls -- LaTeX class to create posters
 % 
-% Copyright (C) 2005-2012 Claire M. Connelly and 
+% Copyright (C) 2005-2014 Claire M. Connelly and 
 % the Department of Mathematics, Harvey Mudd College
 % 
 % This program is free software; you can redistribute it and/or modify
