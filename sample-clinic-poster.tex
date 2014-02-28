@@ -12,12 +12,12 @@
 
 %% Project Year.
 %% The year is provided using the \year command.
-\posteryear{2012}
+\posteryear{2014}
 
 %% Project Title.
 %% The title of the poster should probably be the name of your
 %% Clinic project.
-\title{Putting Together a Poster for Presentation Days}
+\title{Putting Together a Poster\\for Presentation Days}
 
 
 %% Sponsor's Name.
@@ -61,26 +61,32 @@
 
 \begin{poster}
 
-\section{Introduction}
-% Note that we're not labeling sections because you shouldn't be
-% doing a lot of referring back and forth in your poster---let the
-% interested folks read your thesis or Clinic report, or ask
-% questions.
+\section{Results}
 
-Describe the basics about your thesis or project here---briefly!  An
-image such as Figure~\ref{fig:our-poster} can help jazz up the
-introduction and get people interested in your poster.
-
-\begin{figure}
-\begin{center}
-\fbox{\includegraphics[width=6in]{sampleposter}}
-\caption{What a great poster!}%
-\label{fig:our-poster}
-\end{center}
-\end{figure}
+Summarize the results of your project here---what have you
+learned, and what does what you've learned mean for your reader,
+the world at large, and your future research?
 
 It's important to give your reader a reason to keep reading your
 poster---why should they care about your project?  Tell them!
+
+Diagrams and images---charts, graphs, photographs---are all good
+things to include here.
+
+Integer aliquam auctor erat. Duis velit nulla, nonummy nec,
+elementum vel, congue sed, mauris:
+
+\begin{itemize}
+\item Fusce bibendum ipsum nec leo. 
+\item Mauris ac odio. 
+\item Nulla facilisi. 
+\item Suspendisse vel lorem.
+\end{itemize}
+Vestibulum non ante a mi consequat porta. Aliquam sapien
+purus, rhoncus ac, suscipit quis, bibendum at, justo. Proin sed
+lacus. Sed laoreet scelerisque ipsum. Nulla velit mauris, sagittis
+a, pretium sed, posuere id, mauris. Phasellus ligula. Vivamus eu
+felis. Nam nunc.
 
 
 \section{Materials and Methods}%
@@ -97,44 +103,6 @@ example, for a project on image processing, you might have a
 \item The details should be in your full report or thesis
 \item Tell them how to get those (if they can) at the end of the poster
 \end{itemize}
-
-
-\section{Results}%
-
-Here we have the real meat of the poster.  Talk about what you did,
-how it worked out, and how it could have gone better.
-
-Diagrams and images---charts, graphs, photographs---are all good
-things to include here.
-
-
-\subsection{Figures in Small Multiples}
-
-Sometimes you need (or want) to include more than one image in a
-figure, such as when you have several close variations on a single
-image, as shown in Figure~\ref{fig:small-multiples}, which has
-subfigures \subref*{fig:small-mults-orig} or
-\subref{fig:small-mults-45}.  You could also refer to the subfigures
-as Figure~\ref{fig:small-mults-90} or
-Figure~\ref{fig:small-multiples}\subref{fig:small-mults-135}.
-
-\begin{figure}
-  \centering
-        \subfloat[][Original image.]{\scalebox{.75}{\includegraphics{shapes}}%
-                \label{fig:small-mults-orig}%
-        }\qquad\qquad
-        \subfloat[][Turned 45\textdegree.]{\includegraphics[scale=.75,origin=c,angle=45]{shapes}%
-                \label{fig:small-mults-45}%
-        }\\
-        \subfloat[][Turned 90\textdegree.]{\scalebox{.75}{\includegraphics[origin=c,angle=90]{shapes}}%
-                \label{fig:small-mults-90}%
-        }\qquad\qquad
-        \subfloat[][Turned 135\textdegree.]{\scalebox{.75}{\includegraphics[origin=c,angle=135]{shapes}}%
-                \label{fig:small-mults-135}%
-        }
-  \caption[Small multiples]{Small multiples.}%
-  \label{fig:small-multiples}
-\end{figure}
 
 \subsection{Tables}
 
@@ -198,24 +166,50 @@ Total& 100.0       &  12        & 100.0       & 12         & 100.0       & 13\\
 \end{center}
 \end{table}
 
+\section{For Further Information}
 
-\section{Conclusions}
+Possibly the most important section of your poster!  Tell people
+how they can find out more about your research.  Be sure to
+include
+\begin{itemize}
+\item Your e-mail address.  Mine's \url{cmc@math.hmc.edu}.
+\item A URL for a website with more information.  \url{http://www.math.hmc.edu/computing/support/printing/posters/}.
+\end{itemize}
 
-Rather than just a summary of your findings (which you presented in
-the previous section), write your \emph{conclusions} based on those
-results---what have you learned, and what does what you've learned
-mean for your reader, the world at large, and your future research?
 
-Integer aliquam auctor erat. Duis velit nulla, nonummy nec,
-elementum vel, congue sed, mauris. Fusce bibendum ipsum nec
-leo. Mauris ac odio. Nulla facilisi. Suspendisse vel lorem. Proin a
-risus. Duis justo. Proin eget purus. Aliquam eu est in enim pretium
-porta. Maecenas sit amet tortor vel mauris commodo
-vehicula. Vestibulum non ante a mi consequat porta. Aliquam sapien
-purus, rhoncus ac, suscipit quis, bibendum at, justo. Proin sed
-lacus. Sed laoreet scelerisque ipsum. Nulla velit mauris, sagittis
-a, pretium sed, posuere id, mauris. Phasellus ligula. Vivamus eu
-felis. Nam nunc.
+
+\vfill
+\columnbreak
+
+\subsection{Figures in Small Multiples}
+
+Sometimes you need (or want) to include more than one image in a
+figure, such as when you have several close variations on a single
+image, as shown in Figure~\ref{fig:small-multiples}, which has
+subfigures \subref*{fig:small-mults-orig} or
+\subref{fig:small-mults-45}.  You could also refer to the subfigures
+as Figure~\ref{fig:small-mults-90} or
+Figure~\ref{fig:small-multiples}\subref{fig:small-mults-135}.
+
+\begin{figure}
+  \centering
+        \subfloat[][Original image.]{\scalebox{.75}{\includegraphics{shapes}}%
+                \label{fig:small-mults-orig}%
+        }\qquad\qquad
+        \subfloat[][Turned 45\textdegree.]{\includegraphics[scale=.75,origin=c,angle=45]{shapes}%
+                \label{fig:small-mults-45}%
+        }\\
+        \subfloat[][Turned 90\textdegree.]{\scalebox{.75}{\includegraphics[origin=c,angle=90]{shapes}}%
+                \label{fig:small-mults-90}%
+        }\qquad\qquad
+        \subfloat[][Turned 135\textdegree.]{\scalebox{.75}{\includegraphics[origin=c,angle=135]{shapes}}%
+                \label{fig:small-mults-135}%
+        }
+  \caption[Small multiples]{Small multiples.}%
+  \label{fig:small-multiples}
+\end{figure}
+
+
 
 
 
@@ -248,8 +242,10 @@ with information about designing scientific
 posters. \citeyearpar{purrington-sciposters}
 
 
-\section{Team Members}
+\subsection{Team Members}
 
+\begin{multicols}{2}
+\setlength{\columnseprule}{0pt}
 \begin{itemize}
 \item Esmerelda Weatherwax (Project Manager)
 \item Gytha Ogg
@@ -258,22 +254,10 @@ posters. \citeyearpar{purrington-sciposters}
 \item \textbf{Faculty Advisor} Mustrum Ridcully
 \item \textbf{Liaison} Rincewind
 \end{itemize}
+\end{multicols}
 
 
-\section{For Further Information}
-
-Possibly the most important section of your poster!  Tell people
-how they can find out more about your research.  Be sure to
-include
-\begin{itemize}
-\item Your e-mail address.  Mine's \url{cmc@math.hmc.edu}.
-\item A URL for a website with more information.  \url{http://www.math.hmc.edu/computing/support/printing/posters/}.
-\item If possible, a URL where they can download and read your full
-  report.  The same as the last.
-\item A URL where they can download your \emph{poster}.  And, again,
-  the same URL will do you.
-\end{itemize}
-
+\vfill
 
 
 \end{poster}
