@@ -70,6 +70,14 @@
 \setlength{\footskip}{1in}
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
+\setlength{\parskip}{2ex}
+\if@thesis
+\setlength{\textwidth}{32in}
+\setlength{\textheight}{37in}
+\setlength{\headheight}{6in}
+\setlength{\headsep}{0.75in}
+\fi
+
 
 %% Require some packages.
 \RequirePackage{ifthen}
