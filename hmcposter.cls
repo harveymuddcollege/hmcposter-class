@@ -179,7 +179,7 @@
 %% For thesis.
 \if@thesis
 \fancyhead[L]{\raisebox{1.5in}{\@hmclogo}}
-\fancyhead[R]{\resizebox{7.5in}{!}{\includegraphics{hmcmath-hexen-logo}}}
+\fancyhead[R]{\resizebox{6in}{!}{\includegraphics{hmcmath-hexen-logo}}}
 \fi
 
 
