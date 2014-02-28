@@ -58,15 +58,14 @@
 \InputIfFileExists{hmcposter.cfg}{}{}
 
 %% Set some dimensions for layout.
-\setlength{\paperwidth}{54in}
-\setlength{\paperheight}{36in}
-\setlength{\textwidth}{50.5in}
-\setlength{\textheight}{28in}
+\setlength{\paperwidth}{36in}
+\setlength{\paperheight}{48in}
+\setlength{\textwidth}{32in}
+\setlength{\textheight}{44in}
 \setlength{\topmargin}{0.5in}
 \setlength{\oddsidemargin}{0.75in}
 \setlength{\evensidemargin}{\oddsidemargin}
-\setlength{\topmargin}{0.5in}
-\setlength{\headheight}{4in}
+\setlength{\headheight}{5.5in}
 \setlength{\headsep}{0.5in}
 \setlength{\footskip}{1in}
 \setlength{\voffset}{0pt}
@@ -290,9 +289,11 @@
 \setlength{\multicolsep}{2em}
 
 \newenvironment{poster}{%
+\raggedbottom
+\raggedright
 \thispagestyle{fancy}
 %{\color{hmcgold}\rule{\textwidth}{2pt}}
-\begin{multicols*}{4}
+\begin{multicols*}{2}
 }%
 {\end{multicols*}
 }
