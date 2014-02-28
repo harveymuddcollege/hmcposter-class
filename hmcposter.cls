@@ -81,6 +81,7 @@
 \RequirePackage{graphics}
 \RequirePackage{color}
 \definecolor{hmcgold}{cmyk}{0,0.2,0.5,0.3}
+\definecolor{hmcorange}{cmyk}{0,0.3,1.0,0}
 \definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
 \definecolor{green}{rgb}{0,1,0}
@@ -187,7 +188,7 @@
 \fancyhead[C]{%
   \begin{center}
     \color{black}\Large\textsf{\@posteryear\ \@sponsor\ \@department\ Clinic}\\%
-    \color{hmcgold}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}
+    \color{hmcorange}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}
   \end{center}
 }
   \fi
@@ -240,7 +241,7 @@
 %%%
 %%% This code taken from fancyhdr.sty; written by Piet van Oostrum.
 
-\newcommand{\@rulecolor}{hmcgold}
+\newcommand{\@rulecolor}{hmcorange}
 
 \if@thesis
 \renewcommand{\@rulecolor}{dkblue}
@@ -292,7 +293,7 @@
 \raggedbottom
 \raggedright
 \thispagestyle{fancy}
-%{\color{hmcgold}\rule{\textwidth}{2pt}}
+%{\color{hmcorange}\rule{\textwidth}{2pt}}
 \begin{multicols*}{2}
 }%
 {\end{multicols*}
