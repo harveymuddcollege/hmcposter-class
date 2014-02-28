@@ -198,7 +198,7 @@
 \fancyhead[C]{%
   \begin{center}
     {\color{black}\Large\textsf{\@class}\\}%
-    {\color{dkblue}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
+    {\color{hmcorange}\fontsize{100pt}{120pt}\selectfont\textsf{\textbf{\@title}}\\[0.25em]}
     {\color{black}\Large\textsf{\@author}\\[-0.5em]}
   \end{center}
 }
@@ -244,7 +244,7 @@
 \newcommand{\@rulecolor}{hmcorange}
 
 \if@thesis
-\renewcommand{\@rulecolor}{dkblue}
+\renewcommand{\@rulecolor}{hmcorange}
 \fi
 
 \renewcommand{\footrule}{{\color{\@rulecolor}\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
