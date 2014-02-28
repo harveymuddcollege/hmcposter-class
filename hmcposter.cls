@@ -152,8 +152,8 @@
 
 %% Define a command to include the HMC Logo.
 \DeclareRobustCommand{\@hmclogo}{%
-  \begin{minipage}{9.5in}
-    \resizebox{9in}{!}{\includegraphics{hmclogo-pantone}}
+  \begin{minipage}{4in}
+    \raisebox{0.5in}{\resizebox{4in}{!}{\includegraphics{hmclogo}}}
   \end{minipage}
 }
 
