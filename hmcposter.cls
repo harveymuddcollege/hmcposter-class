@@ -141,9 +141,10 @@
 \def\posteryear#1{\gdef\@posteryear{#1}}
 \def\@posteryear{\@latex@warning@no@line{No \noexpand\posteryear given}}
 
+\if@clinic
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
-
+\fi
 
 %%% Set up the header.
 
