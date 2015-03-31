@@ -57,28 +57,6 @@
 %% Include local configuration file, if any.
 \InputIfFileExists{hmcposter.cfg}{}{}
 
-%% Set some dimensions for layout.
-\setlength{\paperwidth}{36in}
-\setlength{\paperheight}{48in}
-\setlength{\textwidth}{32in}
-\setlength{\textheight}{44in}
-\setlength{\topmargin}{0.5in}
-\setlength{\oddsidemargin}{0.75in}
-\setlength{\evensidemargin}{\oddsidemargin}
-\setlength{\headheight}{5.5in}
-\setlength{\headsep}{0.5in}
-\setlength{\footskip}{1in}
-\setlength{\voffset}{0pt}
-\setlength{\hoffset}{0pt}
-\setlength{\parskip}{2ex}
-\if@thesis
-\setlength{\textwidth}{32in}
-\setlength{\textheight}{37in}
-\setlength{\headheight}{6in}
-\setlength{\headsep}{0.75in}
-\fi
-
-
 %% Require some packages.
 \RequirePackage{ifthen}
 \RequirePackage{mathpazo}
@@ -96,6 +74,48 @@
 \RequirePackage{multicol}
 \setlength{\columnsep}{1in}
 \setlength{\columnseprule}{2pt}
+
+
+%% Set some dimensions for layout.
+\RequirePackage[
+centering,
+paperwidth=36in,
+paperheight=48in,
+top=0.75in,
+left=0.75in,
+right=0.75in,
+bottom=1in,
+headsep=0.5in,
+footskip=0.5in,
+marginparwidth=0in,
+marginparsep=0in,
+includehead,
+includefoot,
+]{geometry}
+
+
+%% Set some additional layout parameters.
+
+\setlength{\parskip}{2ex}
+
+% Headers and footers.
+\if@clinic
+\geometry{%
+headheight=5.6in,
+headsep=0.5in,
+footskip=1in,
+}
+\fi
+
+% Thesis has a taller header.
+\if@thesis
+\geometry{%
+headheight=6.5in,
+headsep=0.5in,
+footskip=1in,
+}
+\fi
+
 
 %% Redefine the named font sizes so we can keep most of the code
 %% intact whilst still having larger type.
