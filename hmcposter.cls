@@ -319,6 +319,7 @@ footskip=1in,
 \setlength{\multicolsep}{2em}
 
 \newenvironment{poster}{%
+\raggedcolumns
 \raggedbottom
 \raggedright
 \thispagestyle{fancy}
