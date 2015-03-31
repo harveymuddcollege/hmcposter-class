@@ -261,8 +261,8 @@ footskip=1in,
     }
   }
 }
-\renewcommand{\headrulewidth}{2pt}
-\renewcommand{\footrulewidth}{2pt}
+\renewcommand{\headrulewidth}{5pt}
+\renewcommand{\footrulewidth}{\headrulewidth}
 
 
 
