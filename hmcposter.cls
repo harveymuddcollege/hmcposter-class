@@ -174,7 +174,7 @@ footskip=1in,
     \global\def\@ess{s}%
   }%
   \global\def\@ess{}%
-  \settowidth{\ignored@length}{#1}
+  \settowidth{\ignored@length}{#1}%
 }
 \newcommand{\@andcommaspace}{\unskip, }
 
@@ -246,17 +246,17 @@ footskip=1in,
   {}% Do nothing.
   {\textcolor{black}{%
       \set@ess{\@advisor}%
-      \hspace{-1em}\textbf{Advisor\@ess:}
-      \global\let\and\@andcommaspace
+      \textbf{Advisor\@ess: }%
+      \global\let\and\@andcommaspace%
       \@advisor%
     }
-  }\quad%
+  }%
   \ifthenelse{\isundefined{\@reader}}%
   {}% Do nothing.
   {\textcolor{black}{%
       \set@ess{\@reader}%
-      \\\hspace{-0.75em}\textbf{Reader\@ess:}
-      \global\let\and\@andcommaspace
+      \\\textbf{Reader\@ess: }%
+      \global\let\and\@andcommaspace%
       \@reader%
     }
   }
