@@ -33,6 +33,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{hmcposter}[2015/03/31 v6.0 HMC Mathematics LaTeX poster class]
 
+
 %%% Declare and set some options.
 
 %% Set up ifs for Clinic and thesis.
