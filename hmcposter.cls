@@ -22,18 +22,16 @@
 % Contact: Claire Connelly <cmc@math.hmc.edu>
 %          Department of Mathematics
 %          Harvey Mudd College
-%          1250 N. Dartmouth Ave.
+%          301 Platt Boulevard
 %          Claremont, CA 91711
 %
-% $Id$
-% 
 % \fi
 %%
 %% HMC Poster LaTeX class file.
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hmcposter}[2015/03/21 HMC Mathematics LaTeX poster class]
+\ProvidesClass{hmcposter}[2015/03/21 v6.0 HMC Mathematics LaTeX poster class]
 
 %%% Declare and set some options.
 
